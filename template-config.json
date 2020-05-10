@@ -1,0 +1,28 @@
+{
+    "01":[
+        {
+            "type":"text",
+            "font":"selima_.otf",
+            "size":100,
+            "color":"#50525E",
+            "x":720,
+            "y":480,
+        },
+        {
+            "type":"text",
+            "font":"Montserrat-Regular.otf",
+            "size":18,
+            "color":"#000000",
+            "x":720,
+            "y":580,
+        },
+        {
+            "type":"text",
+            "font":"Montserrat-Regular.otf",
+            "size":18,
+            "color":"#000000",
+            "x":750,
+            "y":600,
+        }
+    ]
+}
