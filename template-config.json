@@ -2,7 +2,6 @@
     "1":[
         {
             "name":"Student Name",
-            "type":"text",
             "font":"selima_.otf",
             "size":100,
             "color":"#50525E",
@@ -11,7 +10,6 @@
         },
         {
             "name":"Course Name",
-            "type":"text",
             "font":"Montserrat-Regular.otf",
             "size":18,
             "color":"#000000",
@@ -20,7 +18,6 @@
         },
         {
             "name":"Conducted By",
-            "type":"text",
             "font":"Montserrat-Regular.otf",
             "size":18,
             "color":"#000000",
@@ -29,7 +26,6 @@
         },
         {
             "name":"Date",
-            "type":"text",
             "font":"Montserrat-Regular.otf",
             "size":18,
             "color":"#000000",
@@ -38,19 +34,11 @@
         },
         {
             "name":"Signing Authority",
-            "type":"text",
             "font":"Montserrat-Regular.otf",
             "size":18,
             "color":"#000000",
             "x":900,
             "y":920
-        },
-        {
-            "name":"Signature",
-            "type":"image",
-            "path":"/home/aries/Desktop/pcg/images/signature.png",
-            "x":900,
-            "y":880
         }
     ]
 }
