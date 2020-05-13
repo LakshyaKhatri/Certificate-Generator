@@ -1,15 +1,16 @@
 from PIL import Image, ImageDraw, ImageFont
 import json
 import sys
+import os
 
 
 class Certify:
-    def __init__(self, template, input, output):
+    def __init__(self, template, input):
         self.__template = template
         self.__input = input
-        self.__output = output
         self.__has_more_input = True
         self.__fields = []
+        self.__dir_path = os.path.dirname(os.path.realpath(__file__))
         self.__config()
 
     def __ask_for_input(self):
@@ -27,7 +28,7 @@ class Certify:
 
     def __config(self):
         try:
-            with open('template-config.json') as configFile:
+            with open(self.__dir_path + '/template-config.json') as configFile:
                 # configure fields for specified template
                 self.__fields = json.load(configFile)[self.__template]
         except FileNotFoundError:
@@ -47,12 +48,13 @@ class Certify:
 
     def generate_certificate(self):
         try:
-            certificate = Image.open('templates/' + self.__template + '.jpg')
+            certificate = Image.open(self.__dir_path + '/templates/' + self.__template + '.jpg')
             drawHandler = ImageDraw.Draw(certificate)
 
             print("[certify] Generating certificate " + self.__fields[0]['text'] + '.pdf ...')
             for field in self.__fields:
-                font = ImageFont.truetype('fonts/' + field['font'], field['size'])
+                font = ImageFont.truetype(self.__dir_path + '/fonts/' +
+                                          field['font'], field['size'])
                 textWidth, textHeight = drawHandler.textsize(
                     field['text'],
                     font=font
@@ -64,9 +66,10 @@ class Certify:
                     fill=field['color'],
                     font=font
                 )
-                certificate.save(self.__output + self.__fields[0]['text'] + '.pdf')
-                print('[certify] Certificate generated successfully')
-        except Exception:
+
+            certificate.save('certificates/' + self.__fields[0]['text'] + '.pdf')
+            print('[certify] Certificate generated successfully')
+        except Exception as e:
             print('[certify] Error while generating certificate')
             sys.exit('Exiting')
 

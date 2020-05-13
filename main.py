@@ -8,10 +8,6 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument('template', help='template to use')
-    parser.add_argument('-i', '--input', help='name of the input CSV file',
-                        default=False)
-    parser.add_argument('-o', '--output', help='output directory',
-                        default='./')
     args = parser.parse_args()
 
     # This object will handle certificate generation
