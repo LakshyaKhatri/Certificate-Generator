@@ -100,4 +100,3 @@ dmypy.json
 
 # Explicit files & folders
 templates/
-template-config.json
