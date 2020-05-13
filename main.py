@@ -19,7 +19,3 @@ def main():
     while certify.has_next_input():
         certify.next_input()
         certify.generate_certificate()
-
-
-if __name__ == '__main__':
-    main()

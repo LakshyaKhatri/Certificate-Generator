@@ -14,10 +14,15 @@ class Certify:
 
     def __ask_for_input(self):
         print('[certify] Enter field values:')
-        for i in range(len(self.__fields)):
-            self.__fields[i]['text'] = input(
-                '[certify] ' + self.__fields[i]['name'] + ':'
-            )
+        try:
+            for i in range(len(self.__fields)):
+                self.__fields[i]['text'] = input(
+                    '[certify] ' + self.__fields[i]['name'] + ':'
+                )
+        except Exception:
+            print('\n[certify] Error generating certificate')
+            sys.exit('Exiting')
+
         return False
 
     def __config(self):
@@ -62,7 +67,7 @@ class Certify:
                 certificate.save(self.__output + self.__fields[0]['text'] + '.pdf')
                 print('[certify] Certificate generated successfully')
         except Exception:
-            print('[certify] Error generating certificate')
+            print('[certify] Error while generating certificate')
             sys.exit('Exiting')
 
     def next_input(self):
